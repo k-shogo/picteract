@@ -8,6 +8,12 @@ gem 'rails', '3.2.12'
 # mongodb satabse orm
 gem 'mongoid'
 
+# Design & form builder
+# twotter-bootstrap
+gem 'twitter-bootstrap-rails'
+gem 'simple_form'
+gem 'nested_form'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
