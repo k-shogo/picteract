@@ -1,8 +1,15 @@
+# Ignore rbenv version file
 .ruby-version
+# Ignore mac DS_Store file
 .DS_Store
+
 /*.lock
+# Ignore bundler config
 /.bundle
+# Ignore bundle files
 /vendor/bundle
+# Ignore all logfiles and tempfiles.
+/log/*.log
+/tmp
+
 /public/uploads
-/log/*
-/tmp/*
