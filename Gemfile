@@ -5,7 +5,8 @@ gem 'rails', '3.2.12'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-
+# mongodb satabse orm
+gem 'mongoid'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -20,6 +21,14 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
+group :development do
+  gem 'pry-rails'
+  gem 'sextant'
+  gem 'awesome_print'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
