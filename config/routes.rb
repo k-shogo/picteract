@@ -1,4 +1,8 @@
 Picteract::Application.routes.draw do
+
+  mount_sextant if Rails.env.development?
+  match '*not_found' => 'errors#handle404'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
