@@ -1,5 +1,7 @@
 Picteract::Application.routes.draw do
 
+  devise_for :users
+
   mount_sextant if Rails.env.development?
   match '*not_found' => 'errors#handle404'
 

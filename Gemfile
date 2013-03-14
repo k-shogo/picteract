@@ -7,12 +7,25 @@ gem 'rails', '3.2.12'
 
 # mongodb satabse orm
 gem 'mongoid'
+gem 'mongoid_search'
+gem 'mongoid-ancestry'
+
+# Authentication & Authorize
+gem 'devise'
+gem 'cancan'
+
+# file upload
+gem 'carrierwave-mongoid'
 
 # Design & form builder
 # twotter-bootstrap
 gem 'twitter-bootstrap-rails'
 gem 'simple_form'
 gem 'nested_form'
+
+gem 'haml-rails'
+
+gem 'rails_tokeninput'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -29,6 +42,8 @@ end
 gem 'jquery-rails'
 
 group :development do
+  gem 'html2haml'
+  gem 'erb2haml'
   gem 'pry-rails'
   gem 'sextant'
   gem 'awesome_print'
