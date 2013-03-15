@@ -1,7 +1,5 @@
 class AttachmentsController < ApplicationController
 
-  # DELETE /posts/1
-  # DELETE /posts/1.json
   def destroy
     ap params
     @post = Post.find(params[:post_id])
@@ -13,4 +11,5 @@ class AttachmentsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 end
