@@ -1,9 +1,10 @@
 Picteract::Application.routes.draw do
+  resources :home, only: [:index]
+  root :to => 'home#index'
 
   resources :posts do
     resources :attachments, only: [:destroy]
   end
-
 
   devise_for :users
 
