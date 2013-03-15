@@ -1,0 +1,17 @@
+= simple_nested_form_for @post, html: {multipart: true, class: 'form-horizontal'} do |f|
+  - if @post.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@post.errors.count, "error")} prohibited this post from being saved:"
+      %ul
+        - @post.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-inputs
+    = f.input :body
+    - f.fields_for :attachments do |attachment|
+      = attachment.input :file
+      = attachment.link_to_remove "Remove this attachment"
+    .controls
+      = f.link_to_add "Add attachment", :attachments
+  .form-actions
+    = f.button :submit

@@ -16,10 +16,13 @@ gem 'cancan'
 
 # file upload
 gem 'carrierwave-mongoid'
+gem 'remotipart'
+gem 'mini_magick'
 
 # Design & form builder
 # twotter-bootstrap
 gem 'twitter-bootstrap-rails'
+gem 'twitter-bootstrap-rails-confirm'
 gem 'simple_form'
 gem 'nested_form'
 

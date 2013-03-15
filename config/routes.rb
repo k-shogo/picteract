@@ -1,5 +1,8 @@
 Picteract::Application.routes.draw do
 
+  resources :posts
+
+
   devise_for :users
 
   mount_sextant if Rails.env.development?
