@@ -40,6 +40,8 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
+    attachments = params[:post][:attachments_attributes].select{|k,v| v.key?("file")}
+    params[:post][:attachments_attributes] = attachments
     @post = Post.new(params[:post])
 
     respond_to do |format|
