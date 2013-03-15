@@ -1,6 +1,8 @@
 Picteract::Application.routes.draw do
 
-  resources :posts
+  resources :posts do
+    resources :attachments, only: [:destroy]
+  end
 
 
   devise_for :users
