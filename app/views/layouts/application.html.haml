@@ -19,12 +19,16 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.brand(href="#") Picteract
+          = link_to 'Pictract', root_path, class: 'brand'
           .container.nav-collapse
             %ul.nav
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
+              - if user_signed_in?
+                %li= link_to "Edit(#{current_user.email})", edit_user_registration_path
+                %li= link_to 'Logout', destroy_user_session_path, method: :delete
+              -else
+                %li= link_to 'Login', new_user_session_path
+
+
 
     .container-fluid
 
