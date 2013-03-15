@@ -22,7 +22,7 @@ class Post
 
   attr_accessible :to, :body, :attachments_attributes
 
-  attr_reader :invite
+  attr_reader :to
 
   field :body, type: String
 

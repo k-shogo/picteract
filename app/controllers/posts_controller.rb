@@ -58,6 +58,8 @@ class PostsController < ApplicationController
   # PUT /posts/1
   # PUT /posts/1.json
   def update
+    attachments = params[:post][:attachments_attributes].select{|k,v| v.key?("file")}
+    params[:post][:attachments_attributes] = attachments
     @post = Post.find(params[:id])
 
     respond_to do |format|
