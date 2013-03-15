@@ -40,8 +40,10 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    attachments = params[:post][:attachments_attributes].select{|k,v| v.key?("file")}
-    params[:post][:attachments_attributes] = attachments
+    if params[:post][:attachments_attributes]
+      attachments = params[:post][:attachments_attributes].select{|k,v| v.key?("file")}
+      params[:post][:attachments_attributes] = attachments
+    end
     @post = Post.new(params[:post])
 
     respond_to do |format|
@@ -58,8 +60,10 @@ class PostsController < ApplicationController
   # PUT /posts/1
   # PUT /posts/1.json
   def update
-    attachments = params[:post][:attachments_attributes].select{|k,v| v.key?("file")}
-    params[:post][:attachments_attributes] = attachments
+    if params[:post][:attachments_attributes]
+      attachments = params[:post][:attachments_attributes].select{|k,v| v.key?("file")}
+      params[:post][:attachments_attributes] = attachments
+    end
     @post = Post.find(params[:id])
 
     respond_to do |format|
