@@ -4,6 +4,11 @@
 
 %p#notice= notice
 
+- if @post.parent
+  %dl.dl-horizontal
+    %dt parent
+    %dd= link_to @post.parent.id, post_path(@post.parent)
+
 %dl.dl-horizontal
   %dt= model_class.human_attribute_name(:body)
   %dd= @post.body
@@ -16,3 +21,18 @@
 = link_to 'Edit', edit_post_path(@post)
 \|
 = link_to 'Back', posts_path
+
+%hr
+
+- @post.children.each do |child|
+  %dl.dl-horizontal
+    %dt children
+    %dd= link_to child.id, post_path(child)
+
+%hr
+
+- @post = Post.children_of(@post).build
+
+= render 'form'
+
+

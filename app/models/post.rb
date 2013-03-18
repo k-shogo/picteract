@@ -20,7 +20,7 @@ class Post
 
   # ===== model structure =====
 
-  attr_accessible :to, :body, :attachments_attributes
+  attr_accessible :to, :body, :attachments_attributes, :parent_id , :ancestry
 
   attr_reader :to
 

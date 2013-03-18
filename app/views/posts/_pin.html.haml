@@ -1,3 +1,4 @@
 .pin.attachment
-  =image_tag attachment.file.thumb.url, class: 'img-circle' if attachment.file
+  =link_to image_tag(attachment.file.thumb.url, class: 'img-circle'),
+    post_path(attachment.post)
 
