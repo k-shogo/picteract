@@ -1,0 +1,31 @@
+.navbar.navbar-fluid-top
+  .navbar-inner
+    .container-fluid
+      %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to 'Pictract', root_path, class: 'brand'
+      .container.nav-collapse
+        %ul.nav
+          - if user_signed_in?
+            %li= link_to "Edit(#{current_user.email})", edit_user_registration_path
+            %li= link_to 'Logout', destroy_user_session_path, method: :delete
+          -else
+            %li= link_to 'Login', '#login-modal', "data-toggle" => "modal"
+            -# %li= link_to 'Login', new_user_session_path
+
+#login-modal.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-header
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+    %h3#myModalLabel Sing in
+
+  = simple_form_for(resource, as: resource_name, url: session_path(resource_name),
+    html: {class: 'form-horizontal'}) do |f|
+    .modal-body
+      = f.input :email, required: false, autofocus: true
+      = f.input :password, required: false
+      = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+    .modal-footer
+      = f.button :submit, "Sign in", class: 'btn-primary'
+      %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Close
